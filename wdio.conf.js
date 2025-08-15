@@ -1,3 +1,4 @@
+const path = require("path");
 exports.config = {
   //
   // ====================
@@ -56,6 +57,10 @@ exports.config = {
       "appium:deviceName": "iPhone 15",
       "appium:platformVersion": "17.4",
       "appium:automationName": "XCUITest",
+      "appium:app": path.join(
+        process.cwd(),
+        "apps/ios/ai.everthrive.mobile.app"
+      ),
     },
   ],
 
