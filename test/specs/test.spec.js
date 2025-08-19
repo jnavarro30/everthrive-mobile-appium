@@ -3,18 +3,22 @@ const { expect, browser, $, driver } = require("@wdio/globals");
 describe("My Login application", () => {
   it("should login with valid credentials", async () => {
     await driver.pause(1000);
-    await $("~mobile-input").addValue("11111");
+    await $("~mobile-input").addValue("11");
+    await $("~mobile-input").addValue("111");
     await $("~mobile-input").addValue("33333");
     await $(
       '//XCUIElementTypeApplication[@name="Independa Companion"]/XCUIElementTypeWindow[2]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther'
     ).click();
     await $("~login-button").click();
     await $("~otp-input").setValue("33333");
+    await driver.pause(1000);
     await $("~settings").click();
 
     await driver.pause(1000);
-    await $("~dana-test").click();
-    await $('//XCUIElementTypeOther[@name="dana-test"]').click();
+    const danaTest = await $("~dana-test");
+    await danaTest.click();
+    // await $('//XCUIElementTypeOther[@name="dana-test"]').click();
+    // await driver.touchAction({ action: "tap", element: danaTest });
 
     await $("~dana-test-ws").click();
     await $('//XCUIElementTypeStaticText[@name="Start Assessment"]').click();
@@ -22,7 +26,7 @@ describe("My Login application", () => {
 
     let userAnswers = [1, 2, 3, 4, 5];
 
-    let choices1 = [
+    let moodChoices = [
       "Feeling great",
       "Feeling good",
       "A little stressed",
@@ -30,7 +34,7 @@ describe("My Login application", () => {
       "Stressed out",
     ];
 
-    let choices2 = [
+    let circleChoices = [
       "LevelOneCircle",
       "LevelTwoCircle",
       "LevelThreeCircle",
@@ -38,7 +42,7 @@ describe("My Login application", () => {
       "LevelFiveCircle",
     ];
 
-    let choices4 = [
+    let faceChoices = [
       "LevelOneFace",
       "LevelTwoFace",
       "LevelThreeFace",
@@ -46,33 +50,17 @@ describe("My Login application", () => {
       "LevelFiveFace",
     ];
 
-    await $(`//XCUIElementTypeStaticText[@name="${choices1[0]}"]`).click();
-    // await $('//XCUIElementTypeStaticText[@name="Feeling good"]').click();
-    // await $('//XCUIElementTypeStaticText[@name="A little stressed"]').click();
-    // await $('//XCUIElementTypeStaticText[@name="Definitely stressed"]').click();
-    // await $('//XCUIElementTypeStaticText[@name="Stressed out"]').click();
-
+    await $(`//XCUIElementTypeStaticText[@name="${moodChoices[0]}"]`).click();
     await $('//XCUIElementTypeStaticText[@name="Next"]').click();
 
-    await $(`//XCUIElementTypeImage[@name="${choices2[1]}"]`).click();
-
+    await $(`//XCUIElementTypeImage[@name="${circleChoices[1]}"]`).click();
     await $('//XCUIElementTypeStaticText[@name="Next"]').click();
 
-    await $(`//XCUIElementTypeImage[@name="${choices2[2]}"]`).click();
-
+    await $(`//XCUIElementTypeImage[@name="${circleChoices[2]}"]`).click();
     await $('//XCUIElementTypeStaticText[@name="Next"]').click();
 
-    await $(`//XCUIElementTypeImage[@name="${choices4[3]}"]`).click();
-
+    await $(`//XCUIElementTypeImage[@name="${faceChoices[3]}"]`).click();
     await $('//XCUIElementTypeStaticText[@name="Next"]').click();
-
     await $('//XCUIElementTypeStaticText[@name="OK"]').click();
-
-    // await $("~dana-test-brain_vital").click();
-    // await $('//XCUIElementTypeStaticText[@name="Next"]').click();
-    // await $('//XCUIElementTypeStaticText[@name="Start Assessment"]').click();
-    // await $("~Target Image").click();
-    // await $('//XCUIElementTypeButton[@name="Continue"]').click();
-    // await $("~PracticeTarget").click();
   });
 });
