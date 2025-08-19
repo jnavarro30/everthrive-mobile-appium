@@ -49,6 +49,28 @@ exports.config = {
   // Sauce Labs platform configurator - a great tool to configure your capabilities:
   // https://saucelabs.com/platform/platform-configurator
   //
+  // IOS Real Device
+  // capabilities: [{
+  //     'appium:xcodeOrgId': '795M9WMEY4',
+  //     'appium:xcodeSigningId': 'Apple Development',
+  //     platformName: 'ios',
+  //     // browserName: 'Chrome',
+  //     'appium:deviceName': 'iPhone 14 Plus',
+  //     'appium:platformVersion': '18.5',
+  //     'appium:automationName': 'XCUITest',
+  //     "appium:udid": "00008110-000165300C40A01E",
+  //     "appium:app": "/Users/navarro/Desktop/app/reactnativezoomsdkpoc.ipa",
+  //     "appium:showXcodeLog": true,
+  //     'appium:permissions': {
+  //         camera: "yes",
+  //         location: "inuse",
+  //         photos: "yes"
+  //     },
+  //     // 'appium:autoAcceptAlerts': true,  // Automatically accept permission popups
+  //     // 'appium:autoDismissAlerts': false,
+  //     // 'appium:app': path.join(process.cwd(), 'app/ios/UIKitCatalog.app')
+  // }],
+  // IOS Simulator
   capabilities: [
     {
       // capabilities for local Appium web tests on iOS
@@ -57,10 +79,19 @@ exports.config = {
       "appium:deviceName": "iPhone 15",
       "appium:platformVersion": "17.4",
       "appium:automationName": "XCUITest",
-      "appium:app": path.join(
-        process.cwd(),
-        "apps/ios/ai.everthrive.mobile.app"
-      ),
+      // "appium:app": path.join(
+      //   process.cwd(),
+      //   "apps/ios/ai.everthrive.mobile.app"
+      // ),
+      "appium:app":
+        "/Users/navarro/Library/Developer/Xcode/DerivedData/EverThriveMobile-bzdwvryrjobcbofylmunylunyaqp/Build/Products/Release-iphonesimulator/reactnativezoomsdkpoc.app",
+      // 'appium:permissions': {
+      //     camera: "yes",
+      //     location: "inuse",
+      //     photos: "yes"
+      // },
+      "appium:autoAcceptAlerts": true, // Automatically accept permission popups
+      "appium:autoDismissAlerts": false,
     },
   ],
 
