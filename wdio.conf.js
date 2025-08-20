@@ -1,11 +1,11 @@
-const path = require("path");
+const path = require('path');
 exports.config = {
   //
   // ====================
   // Runner Configuration
   // ====================
   // WebdriverIO supports running e2e tests as well as unit and component tests.
-  runner: "local",
+  runner: 'local',
   port: 4723,
   //
   // ==================
@@ -22,7 +22,7 @@ exports.config = {
   // The path of the spec files will be resolved relative from the directory of
   // of the config file unless it's absolute.
   //
-  specs: ["./test/specs/**/*.js"],
+  specs: ['./test/ios/specs/**/*.js'],
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
@@ -74,24 +74,23 @@ exports.config = {
   capabilities: [
     {
       // capabilities for local Appium web tests on iOS
-      platformName: "iOS",
+      platformName: 'iOS',
       // browserName: 'Safari',
-      "appium:deviceName": "iPhone 15",
-      "appium:platformVersion": "17.4",
-      "appium:automationName": "XCUITest",
+      'appium:deviceName': 'iPhone 15',
+      'appium:platformVersion': '17.4',
+      'appium:automationName': 'XCUITest',
       // "appium:app": path.join(
       //   process.cwd(),
       //   "apps/ios/ai.everthrive.mobile.app"
       // ),
-      "appium:app":
-        "/Users/navarro/Library/Developer/Xcode/DerivedData/EverThriveMobile-bzdwvryrjobcbofylmunylunyaqp/Build/Products/Release-iphonesimulator/reactnativezoomsdkpoc.app",
+      'appium:app': '/Users/navarro/Library/Developer/Xcode/DerivedData/EverThriveMobile-bzdwvryrjobcbofylmunylunyaqp/Build/Products/Release-iphonesimulator/reactnativezoomsdkpoc.app',
       // 'appium:permissions': {
       //     camera: "yes",
       //     location: "inuse",
       //     photos: "yes"
       // },
-      "appium:autoAcceptAlerts": true, // Automatically accept permission popups
-      "appium:autoDismissAlerts": false,
+      'appium:autoAcceptAlerts': true, // Automatically accept permission popups
+      'appium:autoDismissAlerts': false,
     },
   ],
 
@@ -102,7 +101,7 @@ exports.config = {
   // Define all options that are relevant for the WebdriverIO instance here
   //
   // Level of logging verbosity: trace | debug | info | warn | error | silent
-  logLevel: "info",
+  logLevel: 'info',
   //
   // Set specific log levels per logger
   // loggers:
@@ -142,7 +141,7 @@ exports.config = {
   // Services take over a specific job you don't want to take care of. They enhance
   // your test setup with almost no effort. Unlike plugins, they don't add new
   // commands. Instead, they hook themselves up into the test process.
-  services: ["appium"],
+  services: ['appium'],
 
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber
@@ -150,7 +149,7 @@ exports.config = {
   //
   // Make sure you have the wdio adapter package for the specific framework installed
   // before running any tests.
-  framework: "mocha",
+  framework: 'mocha',
 
   //
   // The number of times to retry the entire specfile when it fails as a whole
@@ -165,12 +164,12 @@ exports.config = {
   // Test reporter for stdout.
   // The only one supported by default is 'dot'
   // see also: https://webdriver.io/docs/dot-reporter
-  reporters: ["spec"],
+  reporters: ['spec'],
 
   // Options to be passed to Mocha.
   // See the full list at http://mochajs.org/
   mochaOpts: {
-    ui: "bdd",
+    ui: 'bdd',
     timeout: 60000,
   },
 

@@ -16,5 +16,10 @@
     "@wdio/mocha-framework": "^9.19.1",
     "@wdio/spec-reporter": "^9.19.1",
     "appium-xcuitest-driver": "^9.10.4"
+  },
+  "dependencies": {
+    "eslint": "^9.33.0",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.6.2"
   }
 }
