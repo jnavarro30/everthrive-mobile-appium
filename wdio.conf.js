@@ -83,7 +83,7 @@ exports.config = {
       //   process.cwd(),
       //   "apps/ios/ai.everthrive.mobile.app"
       // ),
-      'appium:app': '/Users/navarro/Library/Developer/Xcode/DerivedData/EverThriveMobile-bzdwvryrjobcbofylmunylunyaqp/Build/Products/Release-iphonesimulator/reactnativezoomsdkpoc.app',
+      'appium:app': '/Users/navarro/Library/Developer/Xcode/DerivedData/EverThriveMobile-ffhudlrkcjmzozgltzsrzsvmiydc/Build/Products/Debug-iphonesimulator/EverThrive Companion.app',
       // 'appium:permissions': {
       //     camera: "yes",
       //     location: "inuse",

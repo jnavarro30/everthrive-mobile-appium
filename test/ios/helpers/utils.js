@@ -1,40 +1,29 @@
-import axios from "axios";
+import axios from 'axios';
 
 export const login = async () => {
-  await $("~mobile-input").addValue("11");
-  await $("~mobile-input").addValue("111");
-  await $("~mobile-input").addValue("33333");
-  await $(
-    '//XCUIElementTypeApplication[@name="Independa Companion"]/XCUIElementTypeWindow[2]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther'
-  ).click();
-  await $("~login-button").click();
-  await $("~otp-input").setValue("33333");
+  await $('~mobile-input').addValue('11');
+  await $('~mobile-input').addValue('111');
+  await $('~mobile-input').addValue('33333');
+  await $('//XCUIElementTypeApplication[@name="Independa Companion"]/XCUIElementTypeWindow[2]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther').click();
+  await $('~login-button').click();
+  await $('~otp-input').setValue('33333');
 };
 
-export const getCheckInData = async () => {
-  const userId = "12345";
-
+export const getDailyCheckInAnswers = async () => {
   try {
-    const response = await axios.get(
-      `https://your-api-server.com/users/${userId}`
-    );
+    // const token = mainStore().userDetails.token;
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjE3ODEsIm9pZCI6MTg1LCJwZXJtIjpbMSw4LDksMTMsMTUsMjUsMjYsMzBdLCJkIjoiMjAyMzA0MTAiLCJpYXQiOjE3NTU5MDAwNzV9.Ae_wdEyMZEoi4sND2_1yfu5VWJteIMYu8F5n6vr_aXU';
 
-    console.log("✅ API Response:", response.data);
+    const res = await axios.get('https://api-stage.independa.com/ever-thrive/daily-checkin', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
-    if (response.data.checkedIn) {
-      const questions = response.data.questions || [];
-      const answers = response.data.answers || [];
-
-      return {
-        questions,
-        answers,
-      };
-    } else {
-      console.log("❌ User is not checked in.");
-      throw new Error("User is not checked in.");
-    }
+    console.log('getDailyCheckInAnswers res', res.data);
+    const answers = res.data.data.answers;
+    return answers;
   } catch (error) {
-    console.error("❌ API request failed:", error.message);
-    throw error;
+    console.error(error);
   }
 };
